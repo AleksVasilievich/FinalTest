@@ -1,9 +1,7 @@
 package AnimalsProgram;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 class Animal {
     private String name;
@@ -28,6 +26,11 @@ class Animal {
 
     public String getBirthDate() {
         return birthDate;
+    }
+
+    @Override
+    public String toString() {
+        return "";
     }
 }
 
@@ -123,4 +126,22 @@ class Donkey extends DraughtAnimal {
         return commands;
     }
 }
+class AnimalCounter implements AutoCloseable {
+    private static int count = 0;
 
+    public static void incrementCount() {
+        count++;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    @Override
+    public void close() throws Exception {
+        count--;
+        if (count < 0) {
+            throw new IllegalStateException("Ресурс не закрыт !!!");
+        }
+    }
+}
