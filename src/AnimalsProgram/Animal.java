@@ -6,11 +6,22 @@ import java.util.List;
 class Animal {
     private String name;
     private String birthDate;
+    private List<String> commands;
+
 
     public Animal(String name, String birthDate) {
         this.name = name;
         this.birthDate = birthDate;
+        this.commands = new ArrayList<>();
     }
+
+    public void addCommand(String command) {
+        commands.add(command);
+    }
+    public List<String> getCommands() {
+        return commands;
+    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -38,44 +49,26 @@ class Pet extends Animal{
     public Pet(String name, String birthDate) {
         super(name, birthDate);
     }
+
 }
 
 class Dog extends Pet {
-    private List<String> commands;
+
     public Dog(String name, String birthDate) {
         super(name, birthDate);
-        commands = new ArrayList<>();
-    }
-    public void addCommand(String command) {
-        commands.add(command);
-    }
-    public List<String> getCommands() {
-        return commands;
     }
 }
 
 class Cat extends Pet {
-    private List<String> commands;
+
     public Cat(String name, String birthDate) {
         super(name, birthDate);
-        commands = new ArrayList<>();
-    }
-    public List<String> getCommands() {
-        return commands;
     }
 }
 
 class Hamster extends Pet {
-    private List<String> commands;
     public Hamster(String name, String birthDate) {
         super(name, birthDate);
-        commands = new ArrayList<>();
-    }
-    public void addCommand(String command) {
-        commands.add(command);
-    }
-    public List<String> getCommands() {
-        return commands;
     }
 }
 
@@ -86,44 +79,20 @@ class DraughtAnimal extends Animal {
 }
 
 class Horse extends DraughtAnimal {
-    private List<String> commands;
     public Horse(String name, String birthDate) {
         super(name, birthDate);
-        commands = new ArrayList<>();
-    }
-    public void addCommand(String command) {
-        commands.add(command);
-    }
-    public List<String> getCommands() {
-        return commands;
     }
 }
 
 class Camel extends DraughtAnimal {
-    private List<String> commands;
     public Camel(String name, String birthDate) {
         super(name, birthDate);
-        commands = new ArrayList<>();
-    }
-    public void addCommand(String command) {
-        commands.add(command);
-    }
-    public List<String> getCommands() {
-        return commands;
     }
 }
 
 class Donkey extends DraughtAnimal {
-    private List<String> commands;
     public Donkey(String name, String birthDate) {
         super(name, birthDate);
-        commands = new ArrayList<>();
-    }
-    public void addCommand(String command) {
-        commands.add(command);
-    }
-    public List<String> getCommands() {
-        return commands;
     }
 }
 class AnimalCounter implements AutoCloseable {
