@@ -2,10 +2,13 @@ package AnimalsProgram;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try {
+
+       try {
+
             Dog dog1 = new Dog("Дружок", "2020-09-09");
             dog1.addCommand("Сидеть");
             Cat cat1 = new Cat("Мурзик", "2019-08-08");
