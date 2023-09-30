@@ -9,15 +9,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    public static void addAnimal() {
-
+    public static void addAnimal(){
+        String pathAnimal = "Pet.txt";
         Scanner scanner = new Scanner(System.in);
+        System.out.println("Если животное - dog, cat, hamster -> ввеите 1 ; если - Horse, Camel, Donkey -> 2 ");
+        int line = scanner.nextInt();
         System.out.println("Ведите кличку, дату рождения, команды");
-        Dog dog1 = new Dog(scanner.next(), scanner.next(), scanner.next());
+        Animal friend = new Animal(scanner.next(), scanner.next(), scanner.next());
         List<Animal> animals = new ArrayList<>();
-        animals.add(dog1);
+        animals.add(friend);
         AnimalCounter.incrementCount();
-        try (FileWriter writer = new FileWriter("BazaAnimal2.txt", true)) {
+
+        if (line == 1){
+             pathAnimal = "Pet.txt";
+        } else if (line == 2) {
+            pathAnimal = " Draught.txt";
+        } else System.out.println("Введено не верное значение");
+
+        try (FileWriter writer = new FileWriter(pathAnimal, true)) {
             for (Animal animal : animals) {
                 writer.write(animal.toString());
                 writer.append('\n');
@@ -27,7 +36,6 @@ public class Menu {
             System.out.println(ex.getMessage());
         }
     }
-
 
     public static void addCovand() {
         Scanner scanner = new Scanner(System.in);
@@ -48,11 +56,21 @@ public class Menu {
     }
 
     public static void showAnimal() {
-        try (FileReader reader = new FileReader("BazaAnimal2.txt")) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Если животное - dog, cat, hamster -> ввеите 1 ; если - Horse, Camel, Donkey -> 2 ");
+        int line = scanner.nextInt();
+        String pathAnimal = "Pet.txt";
+        if (line == 1){
+            pathAnimal = "Pet.txt";
+        } else if (line == 2) {
+            pathAnimal = " Draught.txt";
+        } else System.out.println("Введено не верное значение");
+
+        try (FileReader reader = new FileReader(pathAnimal)) {
             BufferedReader bufferedReader = new BufferedReader(reader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+            String liner;
+            while ((liner = bufferedReader.readLine()) != null) {
+                System.out.println(liner);
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
