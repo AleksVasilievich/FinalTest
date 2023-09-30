@@ -1,9 +1,3 @@
-
-
-name + birthDate
-name + birthDate
-dhfghdj3456
-agdfgdfg433556456
-fdfgsg; 3453535
-dhfhfhhj; 33949559
-hdhddh; 366646; hshhdj
+борис; 2020-03-03; бежать
+дружок; 2021-04-01; слушать
+марик; 2018-03-23; сидеть
