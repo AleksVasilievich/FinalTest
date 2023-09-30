@@ -6,21 +6,26 @@ import java.util.List;
 class Animal {
     private String name;
     private String birthDate;
-    private List<String> commands;
+    private String commands;
 
 
     public Animal(String name, String birthDate) {
         this.name = name;
         this.birthDate = birthDate;
-        this.commands = new ArrayList<>();
+    }
+    public Animal(String name,String birthDate, String commands){
+        this.name = name;
+        this.birthDate = birthDate;
+        this.commands = commands;
     }
 
-    public void addCommand(String command) {
-        commands.add(command);
-    }
-    public List<String> getCommands() {
-        return commands;
-    }
+
+//    public void addCommand(String command) {
+//        commands.add(command);
+//    }
+//    public List<String> getCommands() {
+//        return commands;
+//    }
 
 
     public void setName(String name) {
@@ -41,8 +46,10 @@ class Animal {
 
     @Override
     public String toString() {
-        return "";
+        return name + "; " + birthDate + "; " + commands;
+
     }
+
 }
 
 class Pet extends Animal{
@@ -50,12 +57,19 @@ class Pet extends Animal{
         super(name, birthDate);
     }
 
+    public Pet(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
+    }
 }
 
 class Dog extends Pet {
 
     public Dog(String name, String birthDate) {
         super(name, birthDate);
+    }
+
+    public Dog(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
     }
 }
 
