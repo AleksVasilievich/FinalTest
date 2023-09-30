@@ -19,7 +19,7 @@ class Animal {
         this.commands = commands;
     }
 
-
+//
 //    public void addCommand(String command) {
 //        commands.add(command);
 //    }
