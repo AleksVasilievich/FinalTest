@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Menu {
     public static void addAnimal() {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ведите кличку, дату рождения, команды");
         Dog dog1 = new Dog(scanner.next(), scanner.next(), scanner.next());
@@ -26,6 +27,7 @@ public class Menu {
             System.out.println(ex.getMessage());
         }
     }
+
 
     public static void addCovand() {
         Scanner scanner = new Scanner(System.in);

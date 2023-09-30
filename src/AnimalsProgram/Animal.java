@@ -78,11 +78,19 @@ class Cat extends Pet {
     public Cat(String name, String birthDate) {
         super(name, birthDate);
     }
+
+    public Cat(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
+    }
 }
 
 class Hamster extends Pet {
     public Hamster(String name, String birthDate) {
         super(name, birthDate);
+    }
+
+    public Hamster(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
     }
 }
 
@@ -90,11 +98,19 @@ class DraughtAnimal extends Animal {
     public DraughtAnimal(String name, String birthDate) {
         super(name, birthDate);
     }
+
+    public DraughtAnimal(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
+    }
 }
 
 class Horse extends DraughtAnimal {
     public Horse(String name, String birthDate) {
         super(name, birthDate);
+    }
+
+    public Horse(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
     }
 }
 
@@ -102,11 +118,19 @@ class Camel extends DraughtAnimal {
     public Camel(String name, String birthDate) {
         super(name, birthDate);
     }
+
+    public Camel(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
+    }
 }
 
 class Donkey extends DraughtAnimal {
     public Donkey(String name, String birthDate) {
         super(name, birthDate);
+    }
+
+    public Donkey(String name, String birthDate, String commands) {
+        super(name, birthDate, commands);
     }
 }
 class AnimalCounter implements AutoCloseable {
