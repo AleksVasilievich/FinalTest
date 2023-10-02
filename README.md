@@ -22,7 +22,7 @@
    cat "Домашние животные" "Вьючные животные" > "Друзья человека"
 2. Создать директорию, переместить файл туда.
    mkdir Animals
-   mv "Друзья человека" Animals/
+   mv "Друзья человека" Animals/    ![Image alt](/src/screen/par1.png)
 
 3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
    из этого репозитория. ![Image alt](/src/screen/par2.png) ![Image alt](/src/screen/par3.png) ![Image alt](/src/screen/par4.png)
