@@ -1,7 +1,5 @@
 package AnimalsProgram;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -13,8 +11,7 @@ public class Main {
         while (!exit) {
             System.out.println("Меню:");
             System.out.println("1. Показать список животных");
-            System.out.println("2. Добавить в список животное и день его рождения");
-            System.out.println("3. Показать список команд животного");
+            System.out.println("2. Добавить в список животное , день его рождения и команды ");
             System.out.println("0. Выйти");
 
             System.out.print("Выберите действие: ");

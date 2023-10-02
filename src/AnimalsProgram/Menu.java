@@ -9,50 +9,41 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-    public static void addAnimal(){
-        String pathAnimal = "Pet.txt";
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Если животное - dog, cat, hamster -> ввеите 1 ; если - Horse, Camel, Donkey -> 2 ");
-        int line = scanner.nextInt();
-        System.out.println("Ведите кличку, дату рождения, команды");
-        Animal friend = new Animal(scanner.next(), scanner.next(), scanner.next());
-        List<Animal> animals = new ArrayList<>();
-        animals.add(friend);
-        AnimalCounter.incrementCount();
+    public static void addAnimal() {
+        try (AnimalCounter animalCounter =new AnimalCounter()){
+            String pathAnimal = "Pet.txt";
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Если животное - dog, cat, hamster -> ввеите 1 ; если - Horse, Camel, Donkey -> 2 ");
+            int line = scanner.nextInt();
+            System.out.println("Ведите кличку, дату рождения, команды");
+            Animal friend = new Animal(scanner.next(), scanner.next(), scanner.next());
+            List<Animal> animals = new ArrayList<>();
+            animals.add(friend);
 
-        if (line == 1){
-             pathAnimal = "Pet.txt";
-        } else if (line == 2) {
-            pathAnimal = " Draught.txt";
-        } else System.out.println("Введено не верное значение");
+            if (line == 1) {
+                pathAnimal = "Pet.txt";
+            } else if (line == 2) {
+                pathAnimal = " Draught.txt";
+            } else System.out.println("Введено не верное значение");
 
-        try (FileWriter writer = new FileWriter(pathAnimal, true)) {
-            for (Animal animal : animals) {
-                writer.write(animal.toString());
-                writer.append('\n');
-                writer.flush();
+            try (FileWriter writer = new FileWriter(pathAnimal, true)) {
+                for (Animal animal : animals) {
+                    writer.write(animal.toString());
+                    writer.append('\n');
+                    writer.flush();
+                }
+
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
             }
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            animalCounter.incrementCount();
+            int count = animalCounter.getCount();
+            System.out.println("Количество заведенных животных: " + count);
+        }catch (Exception e){
+            System.out.println("Животное не добавлено !!!");
         }
-    }
 
-    public static void addCovand() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ведите кличку, дату рождения, команды");
-        Dog dog1 = new Dog(scanner.next(), scanner.next(), scanner.next());
-        List<Animal> animals = new ArrayList<>();
-        animals.add(dog1);
-        AnimalCounter.incrementCount();
-        try (FileWriter writer = new FileWriter("BazaAnimal3.txt", true)) {
-            for (Animal animal : animals) {
-                writer.write(animal.toString());
-                writer.append('\n');
-                writer.flush();
-            }
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+
     }
 
     public static void showAnimal() {
@@ -60,7 +51,7 @@ public class Menu {
         System.out.println("Если животное - dog, cat, hamster -> ввеите 1 ; если - Horse, Camel, Donkey -> 2 ");
         int line = scanner.nextInt();
         String pathAnimal = "Pet.txt";
-        if (line == 1){
+        if (line == 1) {
             pathAnimal = "Pet.txt";
         } else if (line == 2) {
             pathAnimal = " Draught.txt";
@@ -77,3 +68,4 @@ public class Menu {
         }
     }
 }
+
