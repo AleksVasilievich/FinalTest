@@ -1,13 +1,14 @@
 package AnimalsProgram;
 
-import java.util.ArrayList;
-import java.util.List;
-
 class Animal {
     private String name;
     private String birthDate;
     private String commands;
 
+
+    public Animal(String name) {
+        this.name = name;
+    }
 
     public Animal(String name, String birthDate) {
         this.name = name;
@@ -18,14 +19,6 @@ class Animal {
         this.birthDate = birthDate;
         this.commands = commands;
     }
-
-//
-//    public void addCommand(String command) {
-//        commands.add(command);
-//    }
-//    public List<String> getCommands() {
-//        return commands;
-//    }
 
 
     public void setName(String name) {
@@ -53,6 +46,10 @@ class Animal {
 }
 
 class Pet extends Animal{
+    public Pet(String name) {
+        super(name);
+    }
+
     public Pet(String name, String birthDate) {
         super(name, birthDate);
     }
@@ -63,6 +60,11 @@ class Pet extends Animal{
 }
 
 class Dog extends Pet {
+    public String dogList;
+
+    public Dog(String dogList){
+        super(dogList);
+    }
 
     public Dog(String name, String birthDate) {
         super(name, birthDate);
@@ -134,21 +136,24 @@ class Donkey extends DraughtAnimal {
     }
 }
 class AnimalCounter implements AutoCloseable {
-    private static int count = 0;
+    private int count;
+    public AnimalCounter(){
+        this.count = 0;
+    }
 
-    public static void incrementCount() {
+    public void incrementCount() {
         count++;
     }
 
-    public static int getCount() {
+    public int getCount() {
         return count;
     }
 
     @Override
     public void close() throws Exception {
-        count--;
+        count --;
         if (count < 0) {
-            throw new IllegalStateException("Ресурс не закрыт !!!");
+            throw new Exception("Ресурс не закрыт !!!");
         }
     }
 }
