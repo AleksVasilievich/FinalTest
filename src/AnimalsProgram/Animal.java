@@ -1,46 +1,38 @@
 package AnimalsProgram;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Animal {
     private String name;
-    private String birthDate;
-    private String commands;
-
+    private List<String> commands;
 
     public Animal(String name) {
         this.name = name;
+        this.commands = new ArrayList<>();
     }
 
-    public Animal(String name, String birthDate) {
-        this.name = name;
-        this.birthDate = birthDate;
+    public void addComand(String command){
+        commands.add(command);
     }
-    public Animal(String name,String birthDate, String commands){
-        this.name = name;
-        this.birthDate = birthDate;
-        this.commands = commands;
+    public List<String> getCommands(){
+        return commands;
     }
 
-
-    public void setName(String name) {
-        this.name = name;
+    public void  showCommands(){
+        if (commands.isEmpty()){
+            System.out.println("Это животное не знает ни одной команды");
+        } else {
+            System.out.println("Список команд для " + name + ":");
+            for (String command : commands) {
+                System.out.println("- " + command);
+            }
+        }
     }
 
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-    @Override
-    public String toString() {
-        return name + "; " + birthDate + "; " + commands;
-
+    public void addCommand(String command) {
+        System.out.println("Животное " + name + " получает новую команду: " + command);
+        commands.add(command);
     }
 
 }
@@ -49,90 +41,47 @@ class Pet extends Animal{
     public Pet(String name) {
         super(name);
     }
-
-    public Pet(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Pet(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
-    }
 }
 
 class Dog extends Pet {
-    public String dogList;
-
-    public Dog(String dogList){
-        super(dogList);
-    }
-
-    public Dog(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Dog(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public Dog(String name) {
+        super(name);
     }
 }
 
 class Cat extends Pet {
-
-    public Cat(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Cat(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public Cat(String name) {
+        super(name);
     }
 }
 
 class Hamster extends Pet {
-    public Hamster(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Hamster(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public Hamster(String name) {
+        super(name);
     }
 }
 
 class DraughtAnimal extends Animal {
-    public DraughtAnimal(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public DraughtAnimal(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public DraughtAnimal(String name) {
+        super(name);
     }
 }
 
 class Horse extends DraughtAnimal {
-    public Horse(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Horse(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public Horse(String name) {
+        super(name);
     }
 }
 
 class Camel extends DraughtAnimal {
-    public Camel(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Camel(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public Camel(String name) {
+        super(name);
     }
 }
 
 class Donkey extends DraughtAnimal {
-    public Donkey(String name, String birthDate) {
-        super(name, birthDate);
-    }
-
-    public Donkey(String name, String birthDate, String commands) {
-        super(name, birthDate, commands);
+    public Donkey(String name) {
+        super(name);
     }
 }
 class AnimalCounter implements AutoCloseable {
